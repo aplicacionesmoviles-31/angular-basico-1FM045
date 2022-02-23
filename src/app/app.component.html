@@ -1,9 +1,18 @@
 <h1>{{title}}</h1>
 
 
-<p *ngFor="let imagen of imagenes">
-  <img src="{{imagen}}" alt="">
-</p>
+<ion-app>
+ <ion-content>
+  <p *ngFor="let imagen of imagenes">
+    <ion-card>
+      <ion-card-content>
+        <img src="{{imagen}}" alt="">
+      </ion-card-content>
+    </ion-card>
+  </p>
+ </ion-content>
+</ion-app>
+
 
 <p *ngIf="ingles">
   hello, world!
