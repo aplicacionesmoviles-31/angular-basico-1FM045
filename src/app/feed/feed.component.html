@@ -1,0 +1,20 @@
+<ion-card>
+    <div  *ngFor="let publicacion of publicaciones">
+        <ion-card-header>
+            {{publicacion.usuario}}
+        </ion-card-header>
+        <ion-card-content>
+            <img [src]="publicacion.imagen"  alt="">
+            <p>{{publicacion.caption}}</p>
+            <div>
+                <input type="text"  [(ngModel)]="publicacion.comentario">
+                <div>
+                    {{publicacion.comentario}}
+                </div>
+                <button (click)="postComment(comentario, publicacion)">Comentar</button>
+            </div>
+        </ion-card-content>
+
+    </div>
+   
+</ion-card>
