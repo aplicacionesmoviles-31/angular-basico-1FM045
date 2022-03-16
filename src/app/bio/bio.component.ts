@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as data from '../datos.json';
 
 @Component({
   selector: 'app-bio',
@@ -11,6 +12,8 @@ export class BioComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  //datos: data = {}
 
   siguiendo = false;
 
@@ -44,7 +47,7 @@ export class BioComponent implements OnInit {
   }
 
   desplegarOpciones(): void {
-    //En proceso
+    //En proceso.
   }
 
 

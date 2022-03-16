@@ -19,10 +19,27 @@ export class GaleriaComponent implements OnInit {
     "seguidores": 9437834754985,
     "seguidos": 1,
     "bio": "Guau", 
-    "publicaciones": [
-      "../assets/imagenes/cheems.jpeg",
-      "../assets/imagenes/amsiedad.webp",
-      "../assets/imagenes/meme-perrillo.jpeg"
+    "publicaciones" : [ {
+      "usuario": "@maxelperrito",
+      "imagen": "../assets/imagenes/cheems.jpeg",
+      "caption": "Aqui en Cancun...",
+      "comentario": "", 
+      "id": "3424fsdjfh"
+    },
+    {
+      "usuario": "@maxelperrito",
+      "imagen": "../assets/imagenes/amsiedad.webp",
+      "caption": "Me da amsiedad...",
+      "comentario": "", 
+      "id": "kdhfjs"
+    },
+    {
+      "usuario": "@maxelperrito",
+      "imagen": "../assets/imagenes/meme-perrillo.jpeg",
+      "caption": "Unos perrillos :( ",
+      "comentario": "", 
+      "id": "hfsdjkhfsdjk"
+    }
     ]
   }
 
