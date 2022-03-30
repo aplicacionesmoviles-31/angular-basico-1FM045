@@ -12,6 +12,6 @@ import { PerfilComponent } from './perfil.component';
     //ExploreContainerComponentModule,
     //Tab1PageRoutingModule
   ],
-  declarations: [PerfilComponent]
+  declarations: []
 })
 export class PerfilModule {}
