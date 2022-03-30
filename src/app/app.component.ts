@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Hola, mundo!';
-
-  imagenes = [
-    "../assets/imagenes/cheems.jpeg",
-    "../assets/imagenes/amsiedad.webp",
-    "../assets/imagenes/meme-perrillo.jpeg"
-  ];
-
+  grid = true;
   ingles = false;
+  
+  toggleGrid(): void {
+    this.grid = !this.grid;
+  }
+
+  
 }

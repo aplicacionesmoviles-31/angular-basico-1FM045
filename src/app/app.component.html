@@ -1,19 +1,13 @@
-<h1>{{title}}</h1>
-
-
 <ion-app>
- <ion-content>
-  <p *ngFor="let imagen of imagenes">
-    <ion-card>
-      <ion-card-content>
-        <img src="{{imagen}}" alt="">
-      </ion-card-content>
-    </ion-card>
-  </p>
- </ion-content>
+  <ion-header>
+    <ion-title>Instaapp</ion-title>
+  </ion-header>
+  <ion-content>
+    <router-outlet></router-outlet>
+
+ 
+
+  </ion-content>
+
+  <app-tabs></app-tabs>
 </ion-app>
-
-
-<p *ngIf="ingles">
-  hello, world!
-</p>
