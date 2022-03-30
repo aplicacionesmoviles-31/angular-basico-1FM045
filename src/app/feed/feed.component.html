@@ -1,10 +1,39 @@
 <ion-grid>
     <ion-row>
-        <ion-col size="10" offset="1">
-            <ion-card *ngFor="let publicacion of resPublicaciones" [routerLink]="['/publicacion', publicacion.id]">
+        <ion-col size-md="10" offset-md="1">
+            <app-historias></app-historias>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size-md="10" offset-md="1">
+            <ion-card *ngFor="let publicacion of resPublicaciones; let index  = index;">
                 <div>
                     <ion-card-header>
-                        {{publicacion.usuario}}
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col size="8">
+                                    <ion-label  [routerLink]="['/publicacion', publicacion.id]"> {{publicacion.usuario}}</ion-label>
+                                </ion-col>
+                                <ion-col size="1" offset="3">
+                                    <ion-icon name="ellipsis-horizontal-outline" id="icono--{{index}}"></ion-icon>
+                                </ion-col>
+                                <ion-popover trigger="icono--{{index}}" translucent="true">
+                                    <ng-template>
+                                      <ion-list>
+                                          <ion-item  (click)="borrarPost(index)">
+                                              <ion-label color="danger"><strong>Borrar Publicacion</strong> </ion-label>
+                                          </ion-item>
+                                          <ion-item  (click)="ocultarPost(index)">
+                                            <ion-label color="danger">Ocultar Publicacion </ion-label>
+                                        </ion-item>
+                                      </ion-list>
+                                    </ng-template>
+                                </ion-popover>
+                            </ion-row>
+                        </ion-grid>
+                        
+                      
+                    
                     </ion-card-header>
                     <ion-card-content>
                         <img [src]="publicacion.imagen"  alt="">
@@ -22,7 +51,7 @@
                             <div>
                                 {{publicacion.comentario}}
                             </div>
-                            <ion-button (click)="postComment(comentario, publicacion)">Comentar</ion-button>
+                            <ion-button (click)="postComment(comentario, index)">Comentar</ion-button>
                         </div>
                     </div>
             

@@ -12,6 +12,12 @@ export class GaleriaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  galeria = true;
+
+  mostrarGaleria(mostrarSiNo:  boolean) {
+    this.galeria = mostrarSiNo;
+  }
+
   usuario = {
     "nombre":"Max",
     "alias": "@maxelperrito",

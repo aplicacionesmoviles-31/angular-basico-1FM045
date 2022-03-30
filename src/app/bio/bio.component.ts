@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as data from '../datos.json';
 
+import { ActionSheetController } from '@ionic/angular';
+
 @Component({
   selector: 'app-bio',
   templateUrl: './bio.component.html',
@@ -8,7 +10,7 @@ import * as data from '../datos.json';
 })
 export class BioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private actionSheetController: ActionSheetController) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +34,24 @@ export class BioComponent implements OnInit {
       "../assets/imagenes/amsiedad.webp",
       "../assets/imagenes/meme-perrillo.jpeg"
     ]
+  }
+
+  async createActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      buttons: [{
+        text: 'Cancelar', 
+        role: 'cancel'
+      },
+      {
+        text: 'Bloquear usuario', 
+        role: 'destructive'
+      }]
+    });
+
+    await actionSheet.present();
+
+    const { role, data } = await actionSheet.onDidDismiss();
+    console.log('onDidDismiss resolved with role and data', role, data);
   }
 
   seguir(): void {

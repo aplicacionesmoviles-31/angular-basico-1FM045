@@ -1,14 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
-import { map } from 'rxjs/operators';
-
+//import { map } from 'rxjs/operators';
+//import { FirebaseDbService } from '../firebase-db.service';
+//import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+//import { Observable } from 'rxjs';
+//import {Post} from './';
 
 import { FirebaseDbService } from '../firebase-db.service';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { Observable } from 'rxjs';
-
-//import {Post} from './';
 
 @Component({
   selector: 'app-feed',
@@ -20,13 +19,12 @@ export class FeedComponent implements OnInit {
   
   
   constructor(private http: HttpClient, 
-    private dbFirebase: FirebaseDbService, 
-    private dbF: AngularFireDatabase) { 
+    private dbFirebase: FirebaseDbService) { 
     
         //this.dataRef = this.dbF.list('publicaciones');
         //this.data = dataRef.valueChanges();
 
-        this.data = this.dbF.list('publicaciones').valueChanges();
+        //this.data = this.dbF.list('publicaciones').valueChanges();
   }
 
   ngOnInit(): void {
@@ -35,15 +33,17 @@ export class FeedComponent implements OnInit {
       this.resPublicaciones = res;
     });
 
-    this.data.subscribe(res => {
+    
+
+   /*  this.data.subscribe(res => {
       console.log(res);
-    })
+    }) */
   }
 
   //dataRef :  AngularFireList<any>;
   //data: Observable<any>;
 
-  data: Observable<any>;
+  //data: Observable<any>;
   //posts: Post = [];
 
   
@@ -54,14 +54,29 @@ export class FeedComponent implements OnInit {
     return this.http.get('https://insta-ionic-f21ba-default-rtdb.firebaseio.com/publicaciones.json')
   }
 
-  
+  borrarPost(id: number) {
+    this.dbFirebase.deletePublicacion(id).subscribe(res => {
+
+      console.log(res);
+      //console.log("deleted");
+    })
+  }
+
+  ocultarPost(id: number) {
+    //this.resPublicaciones 
+  }
 
 
   @Input() comentario: string = '';
 
-  postComment(comentario: string, publicacion: any): void {
-    publicacion.comentario = this.comentario;
-    this.comentario = "";
+  postComment(comentario: string, publicacion: number): void {
+    //publicacion.comentario = this.comentario;
+    //this.comentario = "";
+
+    //Aqui va el request de FirebaseDb
+    this.dbFirebase.postComment(comentario, publicacion).subscribe(res=> {
+      console.log(res);
+    })
   }
 
 

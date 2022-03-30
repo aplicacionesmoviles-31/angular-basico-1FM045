@@ -10,7 +10,8 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
 const routes: Routes = [
   { path: 'feed', component: FeedComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'publicacion/:id', component: PublicacionComponent }
+  { path: 'publicacion/:id', component: PublicacionComponent },
+  { path: '**', component: FeedComponent}
 ]
 
 @NgModule({

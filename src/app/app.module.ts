@@ -18,6 +18,7 @@ import { GaleriaComponent } from './galeria/galeria.component';
 import { FeedComponent } from './feed/feed.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PublicacionComponent } from './publicacion/publicacion.component';
+import { HistoriasComponent } from './historias/historias.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
     FeedComponent,
     BioComponent, 
     GaleriaComponent,
+    HistoriasComponent,
     PublicacionComponent, 
     PerfilComponent,
     TabsComponent
