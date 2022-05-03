@@ -46,6 +46,7 @@ Android o iOS
 ## Entregable
 
 Subir código a tu repositorio de Github junto con el ejecutable .apk (Android) o (.ipa) del app.
+`Es un proyecto individual`
 
 ## Fecha de Entrega
 > 24 de Mayo a las 23:59
