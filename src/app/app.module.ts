@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { TabsComponent } from './tabs/tabs.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { RoutesModule } from './routes.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 //Firebase
@@ -19,6 +19,11 @@ import { FeedComponent } from './feed/feed.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PublicacionComponent } from './publicacion/publicacion.component';
 import { HistoriasComponent } from './historias/historias.component';
+import { PublicarComponent } from './publicar/publicar.component';
+
+
+//Providers
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 
 
 @NgModule({
@@ -30,7 +35,8 @@ import { HistoriasComponent } from './historias/historias.component';
     HistoriasComponent,
     PublicacionComponent, 
     PerfilComponent,
-    TabsComponent
+    TabsComponent, 
+    PublicarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +45,12 @@ import { HistoriasComponent } from './historias/historias.component';
     RoutesModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    IonicModule.forRoot()
+    IonicModule.forRoot(), 
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+   Camera
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

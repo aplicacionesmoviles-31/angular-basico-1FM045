@@ -28,12 +28,7 @@ export class FeedComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPublicaciones().subscribe(res => {
-
-      this.resPublicaciones = res;
-    });
-
-    
+    this.getPublicacionesRequest();
 
    /*  this.data.subscribe(res => {
       console.log(res);
@@ -46,12 +41,12 @@ export class FeedComponent implements OnInit {
   //data: Observable<any>;
   //posts: Post = [];
 
-  
-
   resPublicaciones : any = [];
 
-  getPublicaciones() {
-    return this.http.get('https://insta-ionic-f21ba-default-rtdb.firebaseio.com/publicaciones.json')
+  getPublicacionesRequest()  {
+    this.dbFirebase.getPublicaciones().subscribe(res => {
+      this.resPublicaciones = res;
+    })
   }
 
   borrarPost(id: number) {
@@ -71,7 +66,9 @@ export class FeedComponent implements OnInit {
 
   postComment(comentario: string, publicacion: number): void {
     //publicacion.comentario = this.comentario;
-    //this.comentario = "";
+    this.comentario = "";
+    this.comentario = comentario;
+    
 
     //Aqui va el request de FirebaseDb
     this.dbFirebase.postComment(comentario, publicacion).subscribe(res=> {
