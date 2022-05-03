@@ -1,22 +1,25 @@
 ## Proyecto Integrador de Aplicaciones Moviles
 
 
-
 ### Objetivo
 
+Aplicar los conceptos aprendidos durante el semestre sobre aplicaciones híbridas utilizando Angular y la librería de componentes visuales Ionic.
 
+
+### Aplicación: Instaclone
+
+
+
+[Diseño en Figma](https://www.figma.com/file/BV7l4AHwqSINxHf6nARdAm/Instagram?node-id=282%3A3)
+
+
+
+### Entregable
+
+Subir código a tu repositorio de Github junto con el ejecutable .apk (Android) o (.ipa) del app.
+
+### Ayuda
+
+Contacta a tu maestra aracely.des@uanl.edu.mx para dudas. Enviar mensaje por Teams antes del 13 de Mayo con dudas o aclaraciones compartiendo tu matrícula y grupo.
 
 **Bold** and _Italic_ and `Code` text
-
-[Link](url)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aplicacionesmoviles-31/angular-basico-1FM045/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
