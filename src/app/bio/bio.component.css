@@ -1,0 +1,23 @@
+.fotoperfil {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+} 
+
+span {
+    display: block;
+}
+.strong {
+    font-weight: bold;
+}
+
+ion-button {
+    width: 100%;
+}
+
+.centrar {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}

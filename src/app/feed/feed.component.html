@@ -1,0 +1,33 @@
+<ion-grid>
+    <ion-row>
+        <ion-col size="10" offset="1">
+            <ion-card *ngFor="let publicacion of resPublicaciones" [routerLink]="['/publicacion', publicacion.id]">
+                <div>
+                    <ion-card-header>
+                        {{publicacion.usuario}}
+                    </ion-card-header>
+                    <ion-card-content>
+                        <img [src]="publicacion.imagen"  alt="">
+                        <p>{{publicacion.caption}}</p>
+                       
+                    </ion-card-content>
+                    <div class="footer">
+                        <div class="options">
+                            <ion-button fill="clear"><ion-icon name="heart"></ion-icon></ion-button>
+                            <ion-button fill="clear"><ion-icon name="paper-plane"></ion-icon></ion-button>
+                            <ion-button fill="clear"><ion-icon name="bookmark"></ion-icon></ion-button>
+                        </div>
+                        <div class="comentarios">
+                            <ion-input [(ngModel)]="publicacion.comentario" placeholder="Escribe un comentatio"></ion-input>
+                            <div>
+                                {{publicacion.comentario}}
+                            </div>
+                            <ion-button (click)="postComment(comentario, publicacion)">Comentar</ion-button>
+                        </div>
+                    </div>
+            
+                </div>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>
