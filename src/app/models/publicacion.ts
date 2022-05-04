@@ -1,12 +1,7 @@
-export class Publicacion{
-    constructor(
-        public caption: string,
-        public comentario : string, 
-        public id: string,
-        public imagen: string,
-        public usuario: string
-        ) {
-         
-    }
-
+export interface Publicacion{
+     caption: string,
+     comentario : string,
+     id: string,
+     imagen: string,
+     usuario: string
 }

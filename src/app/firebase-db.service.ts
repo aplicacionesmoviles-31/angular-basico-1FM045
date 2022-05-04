@@ -59,8 +59,8 @@ export class FirebaseDbService {
   }
 
   //POST
-  postPublicacion(){
-    //return this.http.post('https://insta-ionic-31-default-rtdb.firebaseio.com//usuario/publicaciones.json', )
+  postPublicacion(post: any){
+    return this.http.post('https://insta-ionic-31-default-rtdb.firebaseio.com/usuario/publicaciones.json', post)
   }
 
   postComment(comentario: string, publicacion: number) {
