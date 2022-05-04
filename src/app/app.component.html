@@ -1,19 +1,39 @@
-<h1>{{title}}</h1>
+<ion-app mode="ios">
+  <ion-header>
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="10">
+            <ion-title  class="alinear-izq"><strong>{{usuario}}</strong></ion-title>
+          </ion-col>
+          <ion-col size="1">
+            <ion-avatar>
+              <ion-img [src]="fotoPerfil" id="avatar"></ion-img>
+              <ion-popover trigger="avatar">
+                <ng-template>
+                  <ion-list>
+                    <ion-item (click)="cerrarSesion()">
+                      <ion-label>
+                        Cerrar Sesion
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ng-template>
+              </ion-popover>
+            </ion-avatar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <router-outlet></router-outlet>
 
+ 
 
-<ion-app>
- <ion-content>
-  <p *ngFor="let imagen of imagenes">
-    <ion-card>
-      <ion-card-content>
-        <img src="{{imagen}}" alt="">
-      </ion-card-content>
-    </ion-card>
-  </p>
- </ion-content>
+  </ion-content>
+
+  <app-tabs></app-tabs>
 </ion-app>
-
-
-<p *ngIf="ingles">
-  hello, world!
-</p>

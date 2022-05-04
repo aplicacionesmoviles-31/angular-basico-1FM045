@@ -1,0 +1,13 @@
+{
+  "defaultProject": "angular-ionic-1FM045",
+  "projects": {
+    "angular-ionic-1FM045": {
+      "name": "angular-ionic-1FM045",
+      "integrations": {
+        "cordova": {},
+        "capacitor": {}
+      },
+      "type": "angular"
+    }
+  }
+}

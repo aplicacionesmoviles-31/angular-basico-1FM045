@@ -1,18 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FirebaseDbService } from './firebase-db.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Hola, mundo!';
+export class AppComponent implements OnInit{
+  
 
-  imagenes = [
-    "../assets/imagenes/cheems.jpeg",
-    "../assets/imagenes/amsiedad.webp",
-    "../assets/imagenes/meme-perrillo.jpeg"
-  ];
+  constructor(private fb: FirebaseDbService){}
 
-  ingles = false;
+  ngOnInit(): void {
+    this.getUsuario().subscribe(res => {
+      this.usuario = res.toString();
+      
+    })
+
+    this.getFotoPerfil().subscribe(res => {
+      this.fotoPerfil = res.toString();
+    })
+    
+  }
+
+  usuario : string = '';
+  fotoPerfil: string = '';
+
+  getUsuario() {
+    return this.fb.getUsuario()
+  }
+
+  getFotoPerfil() {
+    return this.fb.getFotoPerfil();
+  }
+
+  cerrarSesion() {
+    //Work In Progress
+  }
 }
