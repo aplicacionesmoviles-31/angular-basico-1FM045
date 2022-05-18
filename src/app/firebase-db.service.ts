@@ -3,14 +3,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import {AngularFireDatabase} from '@angular/fire/compat/database';
-import { ConnectableObservable } from 'rxjs';
+import { ConnectableObservable, Subject } from 'rxjs';
+import { async } from '@firebase/util';
+import { Publicacion } from './shared/publicacion';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseDbService {
 
-  constructor(private http: HttpClient, private dbFirebase: AngularFireDatabase) { }
+  constructor(private http: HttpClient, private dbFirebase: AngularFireDatabase) {
+   }
 
   //GET
 
@@ -20,6 +25,11 @@ export class FirebaseDbService {
   getPublicaciones(){
     return this.http.get('https://insta-ionic-31-default-rtdb.firebaseio.com/publicaciones.json')
   }
+
+  usuario: string = "";
+
+  
+
 
   getBioUsuario(){
     return this.http.get('https://insta-ionic-31-default-rtdb.firebaseio.com//usuario.json')
@@ -59,8 +69,8 @@ export class FirebaseDbService {
   }
 
   //POST
-  postPublicacion(){
-    //return this.http.post('https://insta-ionic-31-default-rtdb.firebaseio.com//usuario/publicaciones.json', )
+  postPublicacion(post : Publicacion ){
+    return this.http.post('https://insta-ionic-31-default-rtdb.firebaseio.com/publicaciones.json', post)
   }
 
   postComment(comentario: string, publicacion: number) {

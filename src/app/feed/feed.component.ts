@@ -32,6 +32,8 @@ export class FeedComponent implements OnInit {
   ngOnInit(): void {
     this.getPublicacionesRequest();
 
+    //console.log(this.resPublicaciones, "res");
+
    /* this.data.subscribe(res => {
       console.log(res);
     })  */
@@ -43,17 +45,22 @@ export class FeedComponent implements OnInit {
   //data: Observable<any>;
   //posts: Post = [];
 
-  resPublicaciones : Publicacion[] = [];
+  resPublicaciones : any = [];//Publicacion[] = [];
 
   getPublicacionesRequest()  {
     this.dbFirebase.getPublicaciones().subscribe(res => {
-      //this.resPublicaciones = res;
-
-      console.log(res);
-
-      (this.resPublicaciones).push(Object.assign(res));
       
+      //console.log( Object.entries(res).map((e) => ( { [e[0]]: e[1] } )) );
+
+      let rp = Object.entries(res).map((e) => ( { [e[0]]: e[1] } ));
+      console.log(rp);
+
+      
+
+      this.resPublicaciones = rp;
     })
+
+    
   }
 
   borrarPost(id: number) {

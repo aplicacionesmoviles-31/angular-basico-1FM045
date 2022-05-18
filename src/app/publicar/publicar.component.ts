@@ -18,29 +18,46 @@ export class PublicarComponent implements OnInit {
     private db: FirebaseDbService, 
     private storage: AngularFireStorage) { 
 
+      
+      
       this.nuevoPost = {
-        id: "" , 
         caption: "", 
         comentario: "", 
         imagen:"", 
-        usuario:""
+        usuario: this.usuario
       }
     }
 
+    
+
   ngOnInit(): void {
+
+    this.getUsuario().subscribe(res => {
+      this.usuario = res.toString();
+    })
+ 
   }
 
   nuevoPost : Publicacion;
+  usuario:  string = '';
 
+  getUsuario() {
+    return this.db.getUsuario()
+  }
 
   capturarFoto() { //Lanzar Camara
     
   }
 
   publicar(nuevoPostData: Publicacion ){ //opcion al dar submit
-    console.log("publicado");
+    
 
-    console.log(nuevoPostData);
+    nuevoPostData.usuario = this.usuario;
+    console.log(nuevoPostData)   
+
+    this.db.postPublicacion(nuevoPostData).subscribe(res => {
+      console.log("Publicado!")
+    })
   }
 
 }
