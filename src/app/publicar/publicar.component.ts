@@ -4,8 +4,8 @@ import { FirebaseDbService } from '../firebase-db.service';
 
 import {AngularFireStorage} from '@angular/fire/compat/storage';
 
-import { Publicacion } from '../models/publicacion';
-import { CamaraService } from '../servicios/camara/camara.service';
+import { Publicacion } from '../shared/publicacion';
+
 
 @Component({
   selector: 'app-publicar',
@@ -16,33 +16,31 @@ export class PublicarComponent implements OnInit {
 
   constructor(
     private db: FirebaseDbService, 
-    private storage: AngularFireStorage, 
-    private camara: CamaraService) { }
+    private storage: AngularFireStorage) { 
+
+      this.nuevoPost = {
+        id: "" , 
+        caption: "", 
+        comentario: "", 
+        imagen:"", 
+        usuario:""
+      }
+    }
 
   ngOnInit(): void {
   }
 
-  //Formulario 
-  publicarForm = new FormGroup({
-    caption :new FormControl(),
-    comentario :  new FormControl(),
-    id :  new FormControl(),
-    imagen : new FormControl(),
-    usuario :  new FormControl()
-  })
+  nuevoPost : Publicacion;
 
-  /* subirFoto(event: any) {
-    const foto : File = event.target.files[0];
 
-    console.log(foto);
-  } */
-
-  capturarFoto() {
-    this.camara.tomarFoto();
+  capturarFoto() { //Lanzar Camara
+    
   }
 
-  publicar(){
-    this.db.postPublicacion()
+  publicar(nuevoPostData: Publicacion ){ //opcion al dar submit
+    console.log("publicado");
+
+    console.log(nuevoPostData);
   }
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as data from '../datos.json';
 
 import { ActionSheetController } from '@ionic/angular';
+import { FirebaseDbService } from '../firebase-db.service';
+import { Usuario } from '../shared/usuario';
 
 @Component({
   selector: 'app-bio',
@@ -10,31 +12,63 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class BioComponent implements OnInit {
 
-  constructor(private actionSheetController: ActionSheetController) { }
+ 
 
+  constructor(
+    private actionSheetController: ActionSheetController, 
+    private db: FirebaseDbService) {
+
+      this.usuario = {
+        nombre: "", 
+        alias: "", 
+        bio: "",
+        fotoPerfil: "" , 
+        seguidores: "", 
+        seguidos: ""
+      };
+      
+     }
   ngOnInit(): void {
+
+    this.cargarBioUsuario();
   }
 
-  //datos: data = {}
+
+  usuario : Usuario ;
+  
 
   siguiendo = false;
 
   editandoMensaje= false;
   editandoCorreo = false;
 
-  usuario = {
-    "nombre":"Max",
-    "alias": "@maxelperrito",
-    "fotoPerfil": "../assets/imagenes/meme-perrillo.jpeg",
-    "seguidores": 9437834754985,
-    "seguidos": 1,
-    "bio": "Guau", 
-    "publicaciones": [
-      "../assets/imagenes/cheems.jpeg",
-      "../assets/imagenes/amsiedad.webp",
-      "../assets/imagenes/meme-perrillo.jpeg"
-    ]
+  cargarBioUsuario() {
+    this.db.getBioUsuario().subscribe(res => {
+
+      this.usuario = Object.assign(res);
+      console.log(res);
+    })
   }
+
+ 
+
+ // usuario.nombre = ""; 
+
+  
+
+  // usuarioNoUsar = {
+  //   "nombre":"Max",
+  //   "alias": "@maxelperrito",
+  //   "fotoPerfil": "../assets/imagenes/meme-perrillo.jpeg",
+  //   "seguidores": 9437834754985,
+  //   "seguidos": 1,
+  //   "bio": "Guau", 
+  //   "publicaciones": [
+  //     "../assets/imagenes/cheems.jpeg",
+  //     "../assets/imagenes/amsiedad.webp",
+  //     "../assets/imagenes/meme-perrillo.jpeg"
+  //   ]
+  // }
 
   async createActionSheet() {
     const actionSheet = await this.actionSheetController.create({

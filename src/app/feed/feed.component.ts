@@ -7,6 +7,8 @@ import {HttpClient} from '@angular/common/http';
 //import { Observable } from 'rxjs';
 //import {Post} from './';
 
+import {Publicacion} from '../shared/publicacion';
+
 import { FirebaseDbService } from '../firebase-db.service';
 
 @Component({
@@ -30,9 +32,9 @@ export class FeedComponent implements OnInit {
   ngOnInit(): void {
     this.getPublicacionesRequest();
 
-   /*  this.data.subscribe(res => {
+   /* this.data.subscribe(res => {
       console.log(res);
-    }) */
+    })  */
   }
 
   //dataRef :  AngularFireList<any>;
@@ -41,11 +43,16 @@ export class FeedComponent implements OnInit {
   //data: Observable<any>;
   //posts: Post = [];
 
-  resPublicaciones : any = [];
+  resPublicaciones : Publicacion[] = [];
 
   getPublicacionesRequest()  {
     this.dbFirebase.getPublicaciones().subscribe(res => {
-      this.resPublicaciones = res;
+      //this.resPublicaciones = res;
+
+      console.log(res);
+
+      (this.resPublicaciones).push(Object.assign(res));
+      
     })
   }
 
